@@ -10,7 +10,7 @@
     <h4 id="notification">
         <!-- Some info will be displayed here-->
     </h4>
-    <button onclick="request()">
+    <button onclick="Req()">
         Request for vegetables
     </button>
     
@@ -40,21 +40,21 @@
     
         // Declare variables, this will be used later
         let requestDetails = {};
-        let copDetails = {};
+        let vendorDetails = {};
         let map, marker;
 
         requestDetails = {
             customerId: userId,
             location: {
                 address: "some address",
-                longitude: 12.345,
-                latitude: 12.345
+                longitude: 12.934729,
+                latitude: 77.612257
             },
             vegetables: "some vegetables"
         }
 
-        function request() {
-            socket.emit("request", requestDetails);
+        function Req() {
+            socket.emit("req", requestDetails);
         }
     </script>
 </body>
