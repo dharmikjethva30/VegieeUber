@@ -1,6 +1,6 @@
 const datamodel = require('./model');
 
-const police = datamodel.vendor;
+const vendor = datamodel.vendor;
 
 function fetchNearestvendor(coordinates, maxDistance) {
     return vendor.find({
@@ -23,7 +23,7 @@ function fetchNearestvendor(coordinates, maxDistance) {
 exports.fetchNearestvendor = fetchNearestvendor;
 
 function fetchvendorDetails(userId) {
-    return Cop.findOne({
+    return vendor.findOne({
         userId: userId
     }, {
         vendorId: 1,
@@ -37,7 +37,7 @@ function fetchvendorDetails(userId) {
     });
 }
 function saveRequest(requestId, requestTime, location, customerId, status){
-    const request = new request({
+    const request = new Request({
         "_id": requestId,
         requestTime: requestTime,
         location: location,
