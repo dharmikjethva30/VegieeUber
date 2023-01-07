@@ -23,7 +23,7 @@ function initialize(server) {
             address: eventData.location.address
         };
         await operations.saveRequest(requestId, requestTime, location, eventData.customerId, 'pending');
-        const nearestvendor = await operations.fetchNearestvendor(location.coordinates, 2000);
+        const nearestvendor = await operations.fetchNearestvendor(location.coordinates, 1000);
         eventData.requestId = requestId;
         for (let i = 0; i < nearestvendor.length; i++) {
             io.sockets.in(nearestvendor[i].userId).emit('request', eventData);
